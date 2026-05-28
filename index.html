@@ -424,6 +424,38 @@
             border-bottom-color: #fff;
         }
 
+        /* DOWNLOAD CV BUTTON STYLES */
+        .cv-download-container {
+            margin-top: 25px;
+            text-align: center;
+        }
+        .btn-cv {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffcc00;
+            color: #0d0d0d;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(255,204,0,0.3);
+        }
+        .btn-cv i {
+            font-size: 1.2rem;
+            color: #0d0d0d;
+        }
+        .btn-cv:hover {
+            background: #ffd633;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(255,204,0,0.5);
+            color: #000;
+        }
+
         /* FOOTER */
         .footer {
             background-color: #0f0f0f;
@@ -563,7 +595,7 @@
         </div>
     </section>
 
-    <!-- SKILLS section: fully matching CV content (Languages, Frameworks, Databases, Tools) -->
+    <!-- SKILLS section: fully matching CV content -->
     <section id="skills">
         <h2>Core Technical Skills</h2>
         <div class="skills-container">
@@ -611,7 +643,7 @@
         </div>
     </section>
 
-    <!-- CONTACT (all details matching CV: email, phone, LinkedIn, Portfolio, locations) -->
+    <!-- CONTACT SECTION with downloadable CV button (replaces old text) -->
     <section id="contact" class="contact">
         <h2>Contact & Profiles</h2>
         <ul class="contact-info">
@@ -621,7 +653,14 @@
             <li><i class="fas fa-code-branch"></i> Portfolio: <a href="https://mawandesonkosi.github.io/mawande-sonkosi-portfolio.github.io/" target="_blank">GitHub Portfolio</a></li>
         </ul>
         <p style="margin-top: 20px; color: #bbb; font-weight: 500;">📍 Open to: Port Elizabeth, Cape Town, Durban, Johannesburg, Remote & Hybrid</p>
-        <p style="margin-top: 8px; font-size: 0.9rem; color: #aaa;">📄 Full CV available upon request | References available</p>
+        
+        <!-- DOWNLOAD CV BUTTON: replaces "CV available upon request" text with actual downloadable PDF -->
+        <div class="cv-download-container">
+            <a href="MawandeSonkosi_CV.pdf" download class="btn-cv">
+                <i class="fas fa-download"></i> Download Full CV (PDF)
+            </a>
+            <p style="font-size: 0.8rem; color: #aaa; margin-top: 12px;">📄 Updated CV – April 2025</p>
+        </div>
     </section>
 
     <footer class="footer">
@@ -638,7 +677,9 @@
                 console.log('Profile image not found in images/Mawande.jpeg, using placeholder.');
             };
         }
-        console.log('Portfolio fully updated: CV alignment, profile picture path = images/Mawande.jpeg');
+        
+        // Optional: check if CV file exists, but download attribute will handle fallback
+        console.log('Portfolio ready: CV download link uses "MawandeSonkosi_CV.pdf" - place file in root directory.');
     </script>
 </body>
 </html>
