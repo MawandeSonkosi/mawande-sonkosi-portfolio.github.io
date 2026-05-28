@@ -208,6 +208,7 @@
             object-fit: cover;
             border: 4px solid #ffcc00;
             box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            background-color: #2a2a2a;
         }
 
         .about-content .text {
@@ -363,7 +364,7 @@
             color: #ffcc00;
         }
 
-        .education p {
+        .education .edu-details {
             font-size: 1.1rem;
             color: #e0e0e0;
             background: #1a1a1a;
@@ -371,6 +372,8 @@
             padding: 12px 28px;
             border-radius: 40px;
             border-left: 4px solid #ffcc00;
+            max-width: 90%;
+            margin: 0 auto;
         }
 
         /* CONTACT */
@@ -469,12 +472,13 @@
         </div>
     </header>
 
-    <!-- ABOUT section fully aligned with CV: skills, experience summary, and professional background -->
+    <!-- ABOUT section fully aligned with CV: skills, experience summary, professional background -->
     <section id="about" class="about">
         <h2>About Me</h2>
         <div class="about-content">
             <div class="image">
-                <img src="image/Mawande.jpeg" alt="Mawande Sonkosi Profile Photo" onerror="this.onerror=null; this.src='https://placehold.co/170x170?text=Mawande';">
+                <!-- Profile image from "images" folder (separate folder called images) -->
+                <img src="images/Mawande.jpeg" alt="Mawande Sonkosi Profile Photo" onerror="this.onerror=null; this.src='https://placehold.co/170x170?text=M.Sonkosi';">
             </div>
             <div class="text">
                 <p>Self-motivated and detail-oriented Software Development graduate with hands-on experience in full-stack development using <strong>C#, ASP.NET Core, SQL, Flutter, and Node.js</strong>. Proven ability to work within Agile and Waterfall environments, delivering scalable solutions and participating in all phases of the software development lifecycle. Passionate about leveraging cutting-edge technologies to solve complex problems and continuously improve software quality.</p>
@@ -483,9 +487,9 @@
         </div>
     </section>
 
-    <!-- PROFESSIONAL EXPERIENCE + ACADEMIC PROJECTS (clearly separated and corrected) -->
+    <!-- PROFESSIONAL EXPERIENCE + ACADEMIC PROJECTS (exactly as per CV structure) -->
     <section id="experience">
-        <h2>Professional Experience & Projects</h2>
+        <h2>Professional Experience & Academic Projects</h2>
         <div class="project-list">
             <!-- Professional: TNJ MEDIA Current Role -->
             <div class="project">
@@ -526,7 +530,7 @@
                 </ul>
             </div>
 
-            <!-- ACADEMIC PROJECT: Ward Management System (Diploma Final Year Project) with Dapper & SQL Server -->
+            <!-- ACADEMIC PROJECT: Ward Management System (Diploma Final Year Project) - Dapper & SQL Server -->
             <div class="project">
                 <h3>Ward Management System</h3>
                 <div class="project-type">🎓 Diploma Final Year Project (Academic)</div>
@@ -542,7 +546,7 @@
             <div class="project">
                 <h3>Employee & Legacy Ward Management (2nd Year Project)</h3>
                 <div class="project-type">📘 Second Year Academic Project</div>
-                <p><strong>Technologies:</strong> Windows Forms, 3-Tier Architecture, C#, Bootstrap (for admin dash prototype), SQL Server</p>
+                <p><strong>Technologies:</strong> Windows Forms, 3-Tier Architecture, C#, Bootstrap (admin dashboard concept), SQL Server, Role-based Access</p>
                 <ul>
                     <li>Developed full CRUD operations, secure authentication, and intuitive UI for enterprise scenarios.</li>
                     <li>Built hospital ward management platform with patient, staff, and medication tracking ensuring data integrity.</li>
@@ -561,7 +565,7 @@
 
     <!-- SKILLS section: fully matching CV content (Languages, Frameworks, Databases, Tools) -->
     <section id="skills">
-        <h2>Technical Skills</h2>
+        <h2>Core Technical Skills</h2>
         <div class="skills-container">
             <div class="skills-category">
                 <h3>Languages & Frameworks</h3>
@@ -593,14 +597,18 @@
         </div>
     </section>
 
-    <!-- EDUCATION & CERTIFICATIONS exactly from CV -->
+    <!-- EDUCATION & CERTIFICATIONS exactly as per CV document -->
     <section id="education" class="education">
         <h2>Education & Certifications</h2>
-        <p>🎓 Nelson Mandela University (2019 – 2025)<br>
-        Advanced Diploma in Information Technology (Software Development)<br>
-        Diploma in Information Technology (Software Development)<br>
-        Higher Certificate in IT (User Support Services)</p>
-        <p style="margin-top: 16px;">📜 Cisco: IT Essentials · Introduction to Cybersecurity</p>
+        <div class="edu-details">
+            🎓 Nelson Mandela University (2019 – 2025)<br>
+            Advanced Diploma in Information Technology (Software Development)<br>
+            Diploma in Information Technology (Software Development)<br>
+            Higher Certificate in IT (User Support Services)
+        </div>
+        <div class="edu-details" style="margin-top: 20px; background: #111; border-left-color: #ffaa33;">
+            📜 Cisco: IT Essentials · Introduction to Cybersecurity
+        </div>
     </section>
 
     <!-- CONTACT (all details matching CV: email, phone, LinkedIn, Portfolio, locations) -->
@@ -613,7 +621,7 @@
             <li><i class="fas fa-code-branch"></i> Portfolio: <a href="https://mawandesonkosi.github.io/mawande-sonkosi-portfolio.github.io/" target="_blank">GitHub Portfolio</a></li>
         </ul>
         <p style="margin-top: 20px; color: #bbb; font-weight: 500;">📍 Open to: Port Elizabeth, Cape Town, Durban, Johannesburg, Remote & Hybrid</p>
-        <p style="margin-top: 8px; font-size: 0.9rem; color: #aaa;">📄 Full CV available upon request</p>
+        <p style="margin-top: 8px; font-size: 0.9rem; color: #aaa;">📄 Full CV available upon request | References available</p>
     </section>
 
     <footer class="footer">
@@ -621,8 +629,16 @@
     </footer>
 
     <script>
-        // simple console to verify profile image path (image/Mawande.jpeg)
-        console.log("Portfolio fully updated: About section matches CV; academic projects labeled and corrected (Ward Mgmt with Dapper, iBhayi, 2nd Year projects).");
+        // Ensures profile picture loads from "images" folder, with fallback messaging if missing
+        const profileImg = document.querySelector('.about-content .image img');
+        if (profileImg) {
+            profileImg.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://placehold.co/170x170?text=Mawande';
+                console.log('Profile image not found in images/Mawande.jpeg, using placeholder.');
+            };
+        }
+        console.log('Portfolio fully updated: CV alignment, profile picture path = images/Mawande.jpeg');
     </script>
 </body>
 </html>
