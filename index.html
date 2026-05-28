@@ -4,13 +4,444 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mawande Sonkosi — Portfolio</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
+    <!-- Google Fonts Poppins + Font Awesome (for icons) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ====== DARK THEME STYLES (merged from user's CSS) ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #f9f9f9;
+            background-color: #121212;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #f9f9f9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #ffcc00;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #1f1f1f;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: auto;
+            min-height: 70px;
+            z-index: 10;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+        }
+
+        .navbar h1 {
+            color: #ffcc00;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .navbar ul li {
+            flex-shrink: 0;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .navbar ul li a:hover {
+            color: #ffcc00;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 15px 20px;
+            }
+            .navbar ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+            .navbar ul li a {
+                white-space: normal;
+                padding: 5px 8px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #0d0d0d, #1f1f1f);
+            color: #fff;
+            padding: 120px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .header .container {
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 2;
+            position: relative;
+        }
+
+        .header .highlight {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .header p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .header .btn-primary {
+            text-decoration: none;
+            background: #ffcc00;
+            color: #0d0d0d;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(255, 204, 0, 0.5);
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .header .btn-primary:hover {
+            background: #ffc107;
+            transform: translateY(-2px);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 204, 0, 0.1), transparent);
+            animation: spin 20s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #121212;
+        }
+
+        .about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .about-content .image img {
+            border-radius: 50%;
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            border: 4px solid #ffcc00;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .about-content .text {
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .about-content .text p {
+            font-size: 1.05rem;
+            color: #e0e0e0;
+            line-height: 1.7;
+        }
+
+        /* EXPERIENCE (modern card style) */
+        #experience {
+            background: #121212;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        #experience h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #ffcc00;
+        }
+
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .project {
+            background-color: #1d1d1d;
+            padding: 25px 30px;
+            border-radius: 14px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.35);
+            border: 1px solid rgba(255,204,0,0.25);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(255,204,0,0.3);
+        }
+
+        .project h3 {
+            font-size: 1.5rem;
+            color: #ffcc00;
+            margin-bottom: 8px;
+        }
+
+        .project p {
+            color: #cccccc;
+            margin-bottom: 8px;
+        }
+
+        .project p strong {
+            color: #f0f0f0;
+        }
+
+        .project ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+
+        .project ul li {
+            margin-bottom: 6px;
+            color: #dddddd;
+        }
+
+        .project a {
+            color: #ffcc00;
+            text-decoration: underline;
+        }
+
+        .project a:hover {
+            color: #ffd740;
+        }
+
+        /* SKILLS section */
+        #skills {
+            padding: 2rem 1rem;
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            margin: 20px 20px 0;
+        }
+
+        #skills h2 {
+            font-size: 2rem;
+            color: #ffcc00;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .skills-category {
+            flex: 1 1 300px;
+            max-width: 400px;
+            background-color: #121212;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid #ffcc00;
+        }
+
+        .skills-category h3 {
+            font-size: 1.5rem;
+            color: #ffcc00;
+            margin-bottom: 1rem;
+        }
+
+        .skills-category ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-category li {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            color: white;
+        }
+
+        /* EDUCATION */
+        .education {
+            background-color: #121212;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .education h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        .education p {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            background: #1a1a1a;
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 40px;
+            border-left: 4px solid #ffcc00;
+        }
+
+        /* CONTACT */
+        .contact {
+            padding: 50px 20px;
+            text-align: center;
+            background: #1a1a1a;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-info li {
+            margin: 12px 0;
+            color: #ccc;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info li i {
+            margin-right: 5px;
+            color: #ffcc00;
+            width: 28px;
+            font-size: 1.2rem;
+        }
+
+        .contact-info a {
+            color: #ffcc00;
+            text-decoration: none;
+            border-bottom: 1px dotted #ffcc00;
+        }
+
+        .contact-info a:hover {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: #0f0f0f;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 0.9rem;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        /* responsive adjustments */
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header h2 {
+                font-size: 1.2rem;
+            }
+            .project {
+                padding: 20px;
+            }
+            .skills-category {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR (exactly matching CV style + contact alignment) -->
     <nav class="navbar">
         <h1>Mawande Sonkosi</h1>
         <ul>
@@ -22,146 +453,153 @@
         </ul>
     </nav>
 
-    <!-- HEADER -->
+    <!-- HEADER / HERO -->
     <header class="header">
         <div class="container">
-            <h1>Hello, I'm <span class="highlight">Mawande</span></h1>
+            <h1>Hello, I'm <span class="highlight">Mawande Sonkosi</span></h1>
             <h2>Software Developer & Mobile App Engineer</h2>
-            <p>Specializing in Flutter, .NET, Node.js, MongoDB, and building high-performance mobile and web apps.</p>
-            <a href="#contact" class="btn-primary">Contact Me</a>
+            <p>Full-stack developer specializing in C#, ASP.NET Core, Flutter, Node.js, MongoDB, and building scalable cross-platform solutions.</p>
+            <a href="#contact" class="btn-primary">Connect With Me</a>
         </div>
     </header>
 
-    <!-- ABOUT -->
+    <!-- ABOUT SECTION with profile image from /image/Mawande.jpeg -->
     <section id="about" class="about">
         <h2>About Me</h2>
         <div class="about-content">
             <div class="image">
-                <img src="profile.jpg" alt="Profile Image">
+                <!-- Profile image: using exact folder as requested: image/Mawande.jpeg -->
+                <img src="image/Mawande.jpeg" alt="Mawande Sonkosi Profile Photo" onerror="this.onerror=null; this.src='https://placehold.co/170x170?text=Mawande';">
             </div>
             <div class="text">
                 <p>
-                    I am a passionate software developer with hands-on experience in full-stack development,
-                    cross-platform mobile apps, cloud-connected systems, and building dynamic business solutions.
-                    I enjoy creating clean, scalable, and user-friendly applications.
+                    Self-motivated and detail-oriented Software Development graduate with hands-on experience in full-stack development using C#, ASP.NET Core, and SQL. Proven ability to work within Agile and Waterfall environments, delivering scalable solutions and participating in all phases of the software development lifecycle. Passionate about leveraging cutting-edge technologies to solve complex problems and continuously improve software quality. Currently building cross-platform mobile applications and robust backend APIs.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- EXPERIENCE -->
+    <!-- PROFESSIONAL EXPERIENCE (synced with CV details) -->
     <section id="experience">
         <h2>Professional Experience</h2>
-
         <div class="project-list">
-
-            <!-- WINE & BUBBLES APP -->
+            <!-- TNJ MEDIA (Current role) -->
             <div class="project">
-                <h3>Wine & Bubbles Now — Mobile App & Web Platform</h3>
-                <p><strong>Technologies:</strong> Flutter, Dart, Node.js, MongoDB</p>
-                <p><strong>Platforms:</strong> iOS, Android, Web</p>
-
+                <h3>Tech Developer | TNJ MEDIA</h3>
+                <p><em>April 2025 - Present</em></p>
+                <p><strong>Tech Stack:</strong> Flutter, .NET Core, Node.js, MongoDB, Git</p>
                 <ul>
-                    <li>Developed a fully functional mobile app using Flutter for both Android & iOS.</li>
-                    <li>Built backend services using Node.js and MongoDB for high-performance order, booking, and delivery handling.</li>
-                    <li>Implemented wine browsing, booking system, African Wine Bar event bookings, and real-time delivery features.</li>
-                    <li>Created the web app version for seamless desktop access.</li>
+                    <li>Built cross-platform mobile app "Wine & Bubbles Now" using Flutter, Node.js, and MongoDB – published on App Store, Play Store, and Web App.</li>
+                    <li>Collaborating in Agile sprints and managing version control via Git.</li>
+                    <li>Designed backend APIs and integrated real-time features for bookings, delivery, and event management.</li>
                 </ul>
+                <p><strong>Live Links:</strong> 
+                    <a href="https://apps.apple.com/app/id6753283481" target="_blank">App Store</a> | 
+                    <a href="https://play.google.com/store/apps/details?id=com.winebubbles.wine_bubbles_now" target="_blank">Play Store</a> | 
+                    <a href="https://app.wineandbubblesnow.co.za/" target="_blank">Web App</a>
+                </p>
+            </div>
 
-                <p><strong>Links:</strong></p>
+            <!-- AI Trainer (Outlier) -->
+            <div class="project">
+                <h3>AI Trainer | Outlier</h3>
+                <p><em>Dec 2024 - Mar 2025</em></p>
                 <ul>
-                    <li><a href="https://apps.apple.com/app/id6753283481" target="_blank">App Store</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.winebubbles.wine_bubbles_now" target="_blank">Google Play Store</a></li>
-                    <li><a href="https://app.wineandbubblesnow.co.za/" target="_blank">Web App</a></li>
+                    <li>Trained AI models and contributed to dataset structuring and quality checks.</li>
+                    <li>Gained experience working with interdisciplinary teams and improving model accuracy.</li>
                 </ul>
             </div>
 
-            <!-- TNJ MEDIA -->
+            <!-- iBhayi Pharmacy Management System (Academic / Project) -->
             <div class="project">
-                <h3>Tech Developer — TNJ Media</h3>
-                <p><strong>Tech Stack:</strong> Flutter, .NET Core, Node.js, MongoDB</p>
-
+                <h3>iBhayi Pharmacy Management System</h3>
+                <p><strong>Tech Stack:</strong> ASP.NET Core, Entity Framework Core, SQL Server</p>
                 <ul>
-                    <li>Built cross-platform mobile apps for business clients using Flutter.</li>
-                    <li>Designed robust backend APIs using .NET Core and Node.js.</li>
-                    <li>Worked on booking systems, e-commerce features, user authentication, and dashboard analytics.</li>
-                    <li>Collaborated with designers and product teams to deliver pixel-perfect UI.</li>
+                    <li>Includes prescription management, pharmacist dashboard, stock control, and allergy tracking.</li>
+                    <li>Implemented role-based access and secure data handling with clean architecture.</li>
                 </ul>
             </div>
 
-            <!-- PHARMACY SYSTEM -->
+            <!-- Employee Management & Ward System summary (to reflect CV) -->
             <div class="project">
-                <h3>Pharmacy Prescription Management System</h3>
-                <p><strong>Tech Stack:</strong> .NET Core, Entity Framework, SQL Server</p>
-
+                <h3>Employee & Ward Management Systems</h3>
+                <p><strong>Technologies:</strong> ASP.NET Core, C#, Bootstrap, SQL Server, Role-based Access</p>
                 <ul>
-                    <li>Developed the Pharmacist subsystem including prescriptions, medications, allergies, and stock modules.</li>
-                    <li>Created dashboard logic with prescription tracking, repeat alerts, and medication safety checks.</li>
-                    <li>Implemented Entity Framework with clean architecture principles.</li>
+                    <li>Developed full CRUD operations, secure authentication, and intuitive UI for enterprise scenarios.</li>
+                    <li>Built hospital ward management platform with patient, staff, and medication tracking ensuring data integrity.</li>
                 </ul>
             </div>
 
+            <!-- Python Data Analysis -->
+            <div class="project">
+                <h3>Python Data Analysis Project</h3>
+                <p>Used Pandas, Matplotlib, and Seaborn for exploratory data analysis on large datasets, generating actionable insights.</p>
+            </div>
         </div>
     </section>
 
-    <!-- SKILLS -->
+    <!-- SKILLS section (exactly extracted from CV) -->
     <section id="skills">
-        <h2>Skills</h2>
-
+        <h2>Core Skills</h2>
         <div class="skills-container">
-
             <div class="skills-category">
-                <h3>Programming Languages</h3>
+                <h3>Languages & Frameworks</h3>
                 <ul>
-                    <li>Dart</li>
-                    <li>C#</li>
-                    <li>JavaScript</li>
-                    <li>Python</li>
+                    <li>C#, ASP.NET Core, .NET Framework</li>
+                    <li>Angular, Entity Framework, Dapper</li>
+                    <li>Flutter, Dart, Node.js</li>
+                    <li>HTML, CSS, Bootstrap, JavaScript</li>
                 </ul>
             </div>
-
             <div class="skills-category">
-                <h3>Frameworks & Tools</h3>
+                <h3>Databases & Tools</h3>
                 <ul>
-                    <li>Flutter</li>
-                    <li>.NET Core</li>
-                    <li>Node.js</li>
-                    <li>Entity Framework</li>
-                    <li>MongoDB</li>
+                    <li>SQL Server, MongoDB, LINQ, EF Core</li>
+                    <li>Visual Studio, GitHub, Azure DevOps</li>
+                    <li>REST APIs, Postman, Git</li>
                 </ul>
             </div>
-
             <div class="skills-category">
-                <h3>Other Skills</h3>
+                <h3>Methodologies & Other</h3>
                 <ul>
-                    <li>API Development</li>
-                    <li>CI/CD</li>
-                    <li>Mobile App Architecture</li>
-                    <li>UI/UX Consistency</li>
+                    <li>Agile (Scrum), Waterfall</li>
+                    <li>Unit Testing, Debugging, Clean Code</li>
+                    <li>UI/UX Design, Cross-Platform Dev</li>
+                    <li>CI/CD Fundamentals</li>
                 </ul>
             </div>
-
         </div>
     </section>
 
-    <!-- EDUCATION -->
+    <!-- EDUCATION & CERTIFICATIONS (matching CV) -->
     <section id="education" class="education">
-        <h2>Education</h2>
-        <p>Bachelor of Information Technology (Software Development)<br>Nelson Mandela University</p>
+        <h2>Education & Certifications</h2>
+        <p>🎓 Nelson Mandela University (2019 - 2025)<br>
+        Advanced Diploma in IT (Software Development) | Diploma in IT (Software Development)<br>
+        Higher Certificate in IT (User Support Services)</p>
+        <p style="margin-top: 16px;">📜 Cisco: IT Essentials, Introduction to Cybersecurity</p>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT section with exact contact info from CV -->
     <section id="contact" class="contact">
-        <h2>Contact</h2>
+        <h2>Let's Connect</h2>
         <ul class="contact-info">
-            <li><i class="fas fa-envelope"></i> Email: mawande.sonkosi@gmail.com</li>
-            <li><i class="fas fa-phone"></i> Phone: 071 XXX XXXX</li>
+            <li><i class="fas fa-envelope"></i> Email: <a href="mailto:mawande2sonkosi@gmail.com">mawande2sonkosi@gmail.com</a></li>
+            <li><i class="fas fa-phone-alt"></i> Phone: 071 391 4064</li>
+            <li><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/mawandesonkosi-0b997b264" target="_blank">linkedin.com/in/mawandesonkosi</a></li>
+            <li><i class="fas fa-code-branch"></i> Portfolio: <a href="https://mawandesonkosi.github.io/mawande-sonkosi-portfolio.github.io/" target="_blank">GitHub Portfolio</a></li>
         </ul>
+        <p style="margin-top: 20px; color: #bbb;">📍 Open to roles in Port Elizabeth, Cape Town, Durban, Johannesburg, Remote & Hybrid</p>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2024 Mawande Sonkosi. All rights reserved.</p>
+        <p>&copy; 2025 Mawande Sonkosi. All rights reserved. | Self-motivated Software Developer</p>
     </footer>
 
+    <!-- small script to handle potential image path fallback silently -->
+    <script>
+        // ensure profile image is properly referenced; if 404, already handled via onerror placeholder but style remains.
+        console.log("Portfolio ready — CV-aligned experience & contact.");
+    </script>
 </body>
 </html>
