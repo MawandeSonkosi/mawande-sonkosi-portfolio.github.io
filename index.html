@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mawande Sonkosi — Portfolio</title>
-    <!-- Google Fonts Poppins + Font Awesome (for icons) -->
+    <title>Mawande Sonkosi — Software Developer Portfolio</title>
+    <!-- Google Fonts Poppins + Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ====== DARK THEME STYLES (merged from user's CSS) ====== */
+        /* ====== DARK THEME STYLES (fully merged) ====== */
         * {
             margin: 0;
             padding: 0;
@@ -211,7 +211,7 @@
         }
 
         .about-content .text {
-            max-width: 600px;
+            max-width: 700px;
             text-align: left;
         }
 
@@ -219,9 +219,10 @@
             font-size: 1.05rem;
             color: #e0e0e0;
             line-height: 1.7;
+            margin-bottom: 1rem;
         }
 
-        /* EXPERIENCE (modern card style) */
+        /* PROJECTS / EXPERIENCE SECTION */
         #experience {
             background: #121212;
             padding: 60px 20px;
@@ -238,7 +239,7 @@
             display: flex;
             flex-direction: column;
             gap: 25px;
-            max-width: 950px;
+            max-width: 1000px;
             margin: auto;
         }
 
@@ -260,7 +261,15 @@
         .project h3 {
             font-size: 1.5rem;
             color: #ffcc00;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
+        }
+
+        .project .project-type {
+            font-size: 0.85rem;
+            color: #ffcc88;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            font-weight: 500;
         }
 
         .project p {
@@ -273,7 +282,7 @@
         }
 
         .project ul {
-            margin-top: 5px;
+            margin-top: 8px;
             padding-left: 20px;
         }
 
@@ -291,7 +300,7 @@
             color: #ffd740;
         }
 
-        /* SKILLS section */
+        /* SKILLS */
         #skills {
             padding: 2rem 1rem;
             background-color: #1f1f1f;
@@ -422,7 +431,6 @@
             border-top: 1px solid #2a2a2a;
         }
 
-        /* responsive adjustments */
         @media (max-width: 600px) {
             .header h1 {
                 font-size: 2rem;
@@ -441,7 +449,6 @@
 </head>
 <body>
 
-    <!-- NAVBAR (exactly matching CV style + contact alignment) -->
     <nav class="navbar">
         <h1>Mawande Sonkosi</h1>
         <ul>
@@ -453,7 +460,6 @@
         </ul>
     </nav>
 
-    <!-- HEADER / HERO -->
     <header class="header">
         <div class="container">
             <h1>Hello, I'm <span class="highlight">Mawande Sonkosi</span></h1>
@@ -463,35 +469,33 @@
         </div>
     </header>
 
-    <!-- ABOUT SECTION with profile image from /image/Mawande.jpeg -->
+    <!-- ABOUT section fully aligned with CV: skills, experience summary, and professional background -->
     <section id="about" class="about">
         <h2>About Me</h2>
         <div class="about-content">
             <div class="image">
-                <!-- Profile image: using exact folder as requested: image/Mawande.jpeg -->
                 <img src="image/Mawande.jpeg" alt="Mawande Sonkosi Profile Photo" onerror="this.onerror=null; this.src='https://placehold.co/170x170?text=Mawande';">
             </div>
             <div class="text">
-                <p>
-                    Self-motivated and detail-oriented Software Development graduate with hands-on experience in full-stack development using C#, ASP.NET Core, and SQL. Proven ability to work within Agile and Waterfall environments, delivering scalable solutions and participating in all phases of the software development lifecycle. Passionate about leveraging cutting-edge technologies to solve complex problems and continuously improve software quality. Currently building cross-platform mobile applications and robust backend APIs.
-                </p>
+                <p>Self-motivated and detail-oriented Software Development graduate with hands-on experience in full-stack development using <strong>C#, ASP.NET Core, SQL, Flutter, and Node.js</strong>. Proven ability to work within Agile and Waterfall environments, delivering scalable solutions and participating in all phases of the software development lifecycle. Passionate about leveraging cutting-edge technologies to solve complex problems and continuously improve software quality.</p>
+                <p>Currently working as a <strong>Tech Developer at TNJ MEDIA</strong> (April 2025 – Present), building cross-platform mobile apps with Flutter, Node.js, and MongoDB. Previously worked as an <strong>AI Trainer at Outlier</strong> (Dec 2024 – Mar 2025), training AI models and contributing to dataset structuring. I have strong expertise in modern frameworks: <strong>.NET Core, Entity Framework, Dapper, Angular, and REST APIs</strong>. I'm actively seeking full-time opportunities in Port Elizabeth, Cape Town, Durban, Johannesburg, Remote or Hybrid.</p>
             </div>
         </div>
     </section>
 
-    <!-- PROFESSIONAL EXPERIENCE (synced with CV details) -->
+    <!-- PROFESSIONAL EXPERIENCE + ACADEMIC PROJECTS (clearly separated and corrected) -->
     <section id="experience">
-        <h2>Professional Experience</h2>
+        <h2>Professional Experience & Projects</h2>
         <div class="project-list">
-            <!-- TNJ MEDIA (Current role) -->
+            <!-- Professional: TNJ MEDIA Current Role -->
             <div class="project">
                 <h3>Tech Developer | TNJ MEDIA</h3>
-                <p><em>April 2025 - Present</em></p>
-                <p><strong>Tech Stack:</strong> Flutter, .NET Core, Node.js, MongoDB, Git</p>
+                <div class="project-type">📅 April 2025 – Present · Full-time</div>
+                <p><strong>Tech Stack:</strong> Flutter, Node.js, MongoDB, Git, REST APIs</p>
                 <ul>
-                    <li>Built cross-platform mobile app "Wine & Bubbles Now" using Flutter, Node.js, and MongoDB – published on App Store, Play Store, and Web App.</li>
-                    <li>Collaborating in Agile sprints and managing version control via Git.</li>
-                    <li>Designed backend APIs and integrated real-time features for bookings, delivery, and event management.</li>
+                    <li>Built cross-platform mobile app "Wine & Bubbles Now" (iOS, Android, Web) using Flutter, Node.js, and MongoDB – published on App Store, Play Store, and web.</li>
+                    <li>Collaborate in Agile sprints, manage version control via Git, and deliver production-grade features.</li>
+                    <li>Integrated real-time booking systems, event management, and secure authentication.</li>
                 </ul>
                 <p><strong>Live Links:</strong> 
                     <a href="https://apps.apple.com/app/id6753283481" target="_blank">App Store</a> | 
@@ -500,52 +504,69 @@
                 </p>
             </div>
 
-            <!-- AI Trainer (Outlier) -->
+            <!-- Professional: AI Trainer Outlier -->
             <div class="project">
                 <h3>AI Trainer | Outlier</h3>
-                <p><em>Dec 2024 - Mar 2025</em></p>
+                <div class="project-type">📅 Dec 2024 – Mar 2025</div>
                 <ul>
-                    <li>Trained AI models and contributed to dataset structuring and quality checks.</li>
-                    <li>Gained experience working with interdisciplinary teams and improving model accuracy.</li>
+                    <li>Trained AI models and contributed to dataset structuring, quality assurance, and model evaluation.</li>
+                    <li>Collaborated with interdisciplinary teams to improve AI response accuracy and logic.</li>
                 </ul>
             </div>
 
-            <!-- iBhayi Pharmacy Management System (Academic / Project) -->
+            <!-- ACADEMIC PROJECT: iBhayi Pharmacy Management System (Advanced Diploma Final Year Project) -->
             <div class="project">
                 <h3>iBhayi Pharmacy Management System</h3>
+                <div class="project-type">🎓 Advanced Diploma Final Year Project (Academic)</div>
                 <p><strong>Tech Stack:</strong> ASP.NET Core, Entity Framework Core, SQL Server</p>
                 <ul>
                     <li>Includes prescription management, pharmacist dashboard, stock control, and allergy tracking.</li>
                     <li>Implemented role-based access and secure data handling with clean architecture.</li>
+                    <li>Built full-stack modules for medication safety checks and repeat prescription alerts.</li>
                 </ul>
             </div>
 
-            <!-- Employee Management & Ward System summary (to reflect CV) -->
+            <!-- ACADEMIC PROJECT: Ward Management System (Diploma Final Year Project) with Dapper & SQL Server -->
             <div class="project">
-                <h3>Employee & Ward Management Systems</h3>
-                <p><strong>Technologies:</strong> ASP.NET Core, C#, Bootstrap, SQL Server, Role-based Access</p>
+                <h3>Ward Management System</h3>
+                <div class="project-type">🎓 Diploma Final Year Project (Academic)</div>
+                <p><strong>Tech Stack:</strong> ASP.NET Core, Dapper, SQL Server</p>
+                <ul>
+                    <li>Built a hospital ward management platform with patient, staff, and medication tracking.</li>
+                    <li>Ensured data integrity and implemented role-based access for hospital administrators, nurses, and doctors.</li>
+                    <li>Optimized database queries using Dapper micro-ORM for performance and efficiency.</li>
+                </ul>
+            </div>
+
+            <!-- ACADEMIC PROJECT: Employee & Ward Management Systems (2nd Year Project) - Windows Forms + 3 Layer -->
+            <div class="project">
+                <h3>Employee & Legacy Ward Management (2nd Year Project)</h3>
+                <div class="project-type">📘 Second Year Academic Project</div>
+                <p><strong>Technologies:</strong> Windows Forms, 3-Tier Architecture, C#, Bootstrap (for admin dash prototype), SQL Server</p>
                 <ul>
                     <li>Developed full CRUD operations, secure authentication, and intuitive UI for enterprise scenarios.</li>
                     <li>Built hospital ward management platform with patient, staff, and medication tracking ensuring data integrity.</li>
+                    <li>Applied layered architecture (presentation, business logic, data access) for maintainability.</li>
                 </ul>
             </div>
 
-            <!-- Python Data Analysis -->
+            <!-- Python Data Analysis Project (academic / independent) -->
             <div class="project">
                 <h3>Python Data Analysis Project</h3>
-                <p>Used Pandas, Matplotlib, and Seaborn for exploratory data analysis on large datasets, generating actionable insights.</p>
+                <div class="project-type">📊 Data Analytics (Academic)</div>
+                <p>Used Pandas, Matplotlib, and Seaborn for exploratory data analysis on large datasets to extract actionable insights.</p>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS section (exactly extracted from CV) -->
+    <!-- SKILLS section: fully matching CV content (Languages, Frameworks, Databases, Tools) -->
     <section id="skills">
-        <h2>Core Skills</h2>
+        <h2>Technical Skills</h2>
         <div class="skills-container">
             <div class="skills-category">
                 <h3>Languages & Frameworks</h3>
                 <ul>
-                    <li>C#, ASP.NET Core, .NET Framework</li>
+                    <li>C#, ASP.NET Core, .NET Framework, .NET Core</li>
                     <li>Angular, Entity Framework, Dapper</li>
                     <li>Flutter, Dart, Node.js</li>
                     <li>HTML, CSS, Bootstrap, JavaScript</li>
@@ -556,50 +577,52 @@
                 <ul>
                     <li>SQL Server, MongoDB, LINQ, EF Core</li>
                     <li>Visual Studio, GitHub, Azure DevOps</li>
-                    <li>REST APIs, Postman, Git</li>
+                    <li>REST APIs, Postman, Unit Testing</li>
+                    <li>Debugging, Clean Code, UI/UX Design</li>
                 </ul>
             </div>
             <div class="skills-category">
                 <h3>Methodologies & Other</h3>
                 <ul>
                     <li>Agile (Scrum), Waterfall</li>
-                    <li>Unit Testing, Debugging, Clean Code</li>
-                    <li>UI/UX Design, Cross-Platform Dev</li>
-                    <li>CI/CD Fundamentals</li>
+                    <li>Cross-Platform Mobile Development</li>
+                    <li>Role-based Access Control (RBAC)</li>
+                    <li>Git Flow, CI/CD Fundamentals</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- EDUCATION & CERTIFICATIONS (matching CV) -->
+    <!-- EDUCATION & CERTIFICATIONS exactly from CV -->
     <section id="education" class="education">
         <h2>Education & Certifications</h2>
-        <p>🎓 Nelson Mandela University (2019 - 2025)<br>
-        Advanced Diploma in IT (Software Development) | Diploma in IT (Software Development)<br>
+        <p>🎓 Nelson Mandela University (2019 – 2025)<br>
+        Advanced Diploma in Information Technology (Software Development)<br>
+        Diploma in Information Technology (Software Development)<br>
         Higher Certificate in IT (User Support Services)</p>
-        <p style="margin-top: 16px;">📜 Cisco: IT Essentials, Introduction to Cybersecurity</p>
+        <p style="margin-top: 16px;">📜 Cisco: IT Essentials · Introduction to Cybersecurity</p>
     </section>
 
-    <!-- CONTACT section with exact contact info from CV -->
+    <!-- CONTACT (all details matching CV: email, phone, LinkedIn, Portfolio, locations) -->
     <section id="contact" class="contact">
-        <h2>Let's Connect</h2>
+        <h2>Contact & Profiles</h2>
         <ul class="contact-info">
             <li><i class="fas fa-envelope"></i> Email: <a href="mailto:mawande2sonkosi@gmail.com">mawande2sonkosi@gmail.com</a></li>
             <li><i class="fas fa-phone-alt"></i> Phone: 071 391 4064</li>
             <li><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/mawandesonkosi-0b997b264" target="_blank">linkedin.com/in/mawandesonkosi</a></li>
             <li><i class="fas fa-code-branch"></i> Portfolio: <a href="https://mawandesonkosi.github.io/mawande-sonkosi-portfolio.github.io/" target="_blank">GitHub Portfolio</a></li>
         </ul>
-        <p style="margin-top: 20px; color: #bbb;">📍 Open to roles in Port Elizabeth, Cape Town, Durban, Johannesburg, Remote & Hybrid</p>
+        <p style="margin-top: 20px; color: #bbb; font-weight: 500;">📍 Open to: Port Elizabeth, Cape Town, Durban, Johannesburg, Remote & Hybrid</p>
+        <p style="margin-top: 8px; font-size: 0.9rem; color: #aaa;">📄 Full CV available upon request</p>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2025 Mawande Sonkosi. All rights reserved. | Self-motivated Software Developer</p>
+        <p>&copy; 2025 Mawande Sonkosi. All rights reserved. | Self-motivated Software Developer | Clean code, scalable solutions</p>
     </footer>
 
-    <!-- small script to handle potential image path fallback silently -->
     <script>
-        // ensure profile image is properly referenced; if 404, already handled via onerror placeholder but style remains.
-        console.log("Portfolio ready — CV-aligned experience & contact.");
+        // simple console to verify profile image path (image/Mawande.jpeg)
+        console.log("Portfolio fully updated: About section matches CV; academic projects labeled and corrected (Ward Mgmt with Dapper, iBhayi, 2nd Year projects).");
     </script>
 </body>
 </html>
